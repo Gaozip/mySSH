@@ -2,6 +2,8 @@ package org.whale.service;
 
 import org.whale.entity.User;
 
+import java.util.List;
+
 /**
  * @Author: gzip
  * @Date: 2020/6/17  9:23
@@ -9,5 +11,9 @@ import org.whale.entity.User;
  **/
 public interface UserService {
 
-    public User getUser(int id);
+     User getUser(int id);
+
+     void doSave(User user);
+
+     List<User> queryAll();
 }

@@ -36,7 +36,7 @@
         </property>
     </bean>
 
-    <bean id="userDao" class="org.whale.dao.UserDao">
+    <bean id="userDao" class="org.whale.dao.impl.UserDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 

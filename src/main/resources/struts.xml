@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
-        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-        "http://struts.apache.org/dtds/struts-2.0.dtd">
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
     <!-- Struts。xml的配置文件 -->
@@ -15,12 +15,14 @@
     <package name="default" extends="struts-default" namespace="/">
         <!-- 如果不指定method，那么默认方法是execute-->
         <!--name:Action类的名字，具有唯一性，页面上通过name来访问Action类 -->
+        <global-allowed-methods>regex:.*</global-allowed-methods>
 
-        <action name="test" class="test" method="test">
+        <action name="testAction" class="test">
             <!-- 配置结果集 :name属性的值一定要与execute方法的返回值一致-->
 
+            <result name="testAdd">/test.jsp</result>
             <result name="test">/test.jsp</result>
+            <result name="queryAll">/test.jsp</result>
         </action>
-
     </package>
 </struts>

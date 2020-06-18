@@ -1,16 +1,23 @@
 package org.whale.dao;
 
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.whale.entity.User;
+
+import java.util.List;
 
 /**
  * @Author: gzip
- * @Date: 2020/6/17  9:20
+ * @Date: 2020/6/17  16:16
  * @Description:
  **/
-public class UserDao extends HibernateDaoSupport {
+public interface UserDao {
 
-    public User getUser(int id) {
-        return this.getHibernateTemplate().get(User.class, id);
-    }
+    User findById(int id);
+
+    void doDelete(int id);
+
+    List<User> findAll();
+
+    void doSave(User user);
+
+    void doUpdate(User user);
 }

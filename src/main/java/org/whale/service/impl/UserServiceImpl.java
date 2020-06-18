@@ -4,6 +4,8 @@ import org.whale.dao.UserDao;
 import org.whale.entity.User;
 import org.whale.service.UserService;
 
+import java.util.List;
+
 /**
  * @Author: gzip
  * @Date: 2020/6/17  9:22
@@ -22,7 +24,15 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getUser(int id) {
-        User user = userDao.getUser(id);
+        User user = userDao.findById(id);
         return user;
+    }
+
+    public void doSave(User user) {
+        userDao.doSave(user);
+    }
+
+    public List<User> queryAll() {
+        return userDao.findAll();
     }
 }
