@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	%logger loggerName
+	%m 信息内容
+	%n 换行
+	%p 日志级别
+	%t 线程名
+	%caller 调用者
+	%C或%class 类名。尽量避免使用，除非执行速度不造成任何问题
+	%M或method 方法名。尽量避免使用，除非执行速度不造成任何问题
+-->
+<configuration>
+	<!-- 支持${USER_HOME} -->
+	<contextListener class="org.whale.base.logback.LoggerStartupListener" />
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<append>true</append>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS,GMT+8} %p %t %logger{0} - %m%n</pattern>
+			<charset>utf-8</charset>
+		</encoder>
+	</appender>
+
+	<appender name="rollingAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${USER_HOME}/idc-business/logs/idc.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${USER_HOME}/idc-business/logs/idc-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>3</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss,GMT+8} %p %t %logger{35} - %m%n</pattern>
+			<charset>utf-8</charset>
+		</encoder>
+	</appender>
+
+	<logger name="org.springframework" level="INFO" />
+	<logger name="org.apache" level="INFO" />
+	<logger name="org.quartz" level="INFO" />
+	<logger name="com.alibaba" level="INFO" />
+	<logger name="org.whale.sms" level="ERROR" />
+	<logger name="org.whale.system.cache" level="ERROR" />
+
+	<root level="DEBUG">
+		<appender-ref ref="console" />
+		<appender-ref ref="rollingAppender" />
+	</root>
+</configuration>

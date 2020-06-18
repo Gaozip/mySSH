@@ -8,6 +8,11 @@
     <artifactId>mySSH</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <slf4j.version>1.7.8</slf4j.version>
+        <logback.version>1.1.2</logback.version>
+    </properties>
 
     <!-- struts2-->
     <dependencies>
@@ -95,6 +100,22 @@
             <artifactId>lombok</artifactId>
             <version>1.16.16</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- logback -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.logback-extensions</groupId>
+            <artifactId>logback-ext-spring</artifactId>
+            <version>0.1.4</version>
         </dependency>
     </dependencies>
 </project>

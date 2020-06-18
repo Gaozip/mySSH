@@ -49,7 +49,7 @@ public class TestAction extends ActionSupport {
         this.userService.doSave(user);
     }
 
-    public void queryAll(){
+    public String queryAll(){
 
         List<User> users = this.userService.queryAll();
         ActionContext.getContext().getValueStack().set("users",users);
@@ -58,5 +58,6 @@ public class TestAction extends ActionSupport {
         //将pageBean存入值栈中   对象用push
 //        ActionContext.getContext().getValueStack().push(pageBean);
         System.out.println(users);
+        return "test";
     }
 }
