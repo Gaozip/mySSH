@@ -37,8 +37,6 @@
 	<logger name="org.apache" level="INFO" />
 	<logger name="org.quartz" level="INFO" />
 	<logger name="com.alibaba" level="INFO" />
-	<logger name="org.whale.sms" level="ERROR" />
-	<logger name="org.whale.system.cache" level="ERROR" />
 
 	<root level="DEBUG">
 		<appender-ref ref="console" />
